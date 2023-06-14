@@ -7,12 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class Module13SpringMVCApplication {
+public class Module14SpringDataApplication {
 
     public static void main(String[] args) {
 
 
-        ConfigurableApplicationContext context = SpringApplication.run(Module13SpringMVCApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(Module14SpringDataApplication.class, args);
 
         NoteService noteService = (NoteService) context.getBean("noteService");
         Note note = Note.builder()
