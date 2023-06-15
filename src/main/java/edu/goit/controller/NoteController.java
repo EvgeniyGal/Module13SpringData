@@ -2,6 +2,7 @@ package edu.goit.controller;
 
 import edu.goit.entity.Note;
 import edu.goit.service.NoteService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,16 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/note")
 public class NoteController {
 
     private final NoteService noteService;
-
-    public NoteController(NoteService noteService) {
-        this.noteService = noteService;
-    }
-
 
     @GetMapping("/list")
     public ModelAndView getNotes() {
@@ -50,6 +47,7 @@ public class NoteController {
         Note note = noteService.getById(id);
         note.setTitle(title);
         note.setContent(content);
+        noteService.update(note);
         return getNotes();
     }
 }
